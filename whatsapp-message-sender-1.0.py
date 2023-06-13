@@ -20,9 +20,6 @@ file1_content = ""
 file2_content = ""
 type_name = ""
 
-icon_path = ".\icon-message.ico"
-
-
 def browse_excel():
     global excel_file
     filename = filedialog.askopenfilename(
@@ -334,7 +331,7 @@ def send_message_sign(excel_file: str, type_name: str, sheet_name: str, message_
         sign = str(
             data.loc[i, sign_column]).replace(".0", "")
         send_whatsapp_message(
-            message_text=new_message_top + " *" + name + "*\n\n"+"Se le informa que tiene *" + sign + "* documento(s) sin firmar.", cellphone=number)
+            message_text=new_message_top + " *" + name + "*\n\n"+"Se le informa que tiene *" + sign + "* documento(s) sin firmar.\n\n" + file2_content, cellphone=number)
         print(str(i + 1) + ". Mensaje enviado a : " + number + " correctamente.")
     print(messagebox.askokcancel(
         message="Se finalizó el envio de mensajes.", title="Atención"))
@@ -438,7 +435,8 @@ submit_button.grid(row=12, column=0, columnspan=3, padx=10, pady=10)
 send_button = tk.Button(root, text="Enviar Mensajes", command=send)
 send_button.grid(row=12, column=1, columnspan=3, padx=10, pady=10)
 
-root.iconbitmap(icon_path)
 root.resizable(False, False)
+
+root.iconbitmap(".\whatsapp-sender.ico")
 # Ejecutar el bucle principal de la aplicación
 root.mainloop()
