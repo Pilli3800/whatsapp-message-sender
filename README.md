@@ -10,8 +10,22 @@ Install the dependencies with pip install and run the project.
 ```bash
   pip install pywhatkit
   pip install pandas
-  pip install win32
+  pip install pypiwin32
   pip install pyautogui
+  pip install pynput
+  pip install openpyxl
+```
+Or you can use this form.
+
+```bash
+  pip install -r requirements.txt
+```
+
+To generate a .exe file, its necessary install pyinstaller. Into the project file, execute this command.
+
+```bash
+  pip install pyinstaller
+  pyinstaller --onefile --noconsole --icon=path_to_icon.ico name_script.py
 ```
 
 ## Author ✒️
